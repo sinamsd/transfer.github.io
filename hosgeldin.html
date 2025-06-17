@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Hoş Geldin</title>
+  <style>
+    body {
+      background: #f1f5f9;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .kutucuk {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <div class="kutucuk">
+    <h1 id="hosgeldin"></h1>
+    <p>Anasayfaya yönlendiriliyorsunuz...</p>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const ad = urlParams.get('ad') || 'Ziyaretçi';
+    document.getElementById('hosgeldin').textContent = `Hoş geldin, ${ad}!`;
+
+    // Kullanıcı adını localStorage'a kaydediyoruz
+    localStorage.setItem("kullanici", ad);
+
+    // 3 saniye sonra anasayfaya yönlendir
+    setTimeout(() => {
+      window.location.href = "index2.html";
+    }, 3000);
+  </script>
+</body>
+</html>
+
+

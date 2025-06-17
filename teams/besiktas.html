@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Beşiktaş Transfer Detayları</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+      
+      margin: 0 auto;
+      background-color: white;
+      padding: 0 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Sol taraf - oyuncu listeleri */
+    .sol-taraf {
+      flex: 2;
+    }
+
+    .sol-taraf h1 {
+      margin-top: 0;
+      color: #1e40af;
+    }
+
+    .player-section {
+      margin-bottom: 25px;
+    }
+
+    .player-section h2 {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  color: #1e40af;
+  border-bottom: none; /* var olan border kaldır */
+}
+
+.player-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 70%; /* istediğin uzunluk */
+  background-color: #1e40af;
+}
+
+
+    ul.player-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul.player-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    ul.player-list li img {
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+    }
+
+    /* Sağ taraf - gelenler ve gidenler */
+    
+    .transfer-container {
+  position: fixed;     /* Ekrana sabitle */
+  top: 60px;           /* Ekranın üstünden 10px boşluk */
+  right: 30px;         /* Ekranın sağından 10px boşluk */
+  width: 400px;        /* Sabit genişlik */
+  display: flex;       
+  flex-direction: column; /* Dikey sıralama */
+  gap: 20px;           /* Kutular arası boşluk */
+  z-index: 9999;       /* Üste çıkması için */
+}
+
+.transfer-box {
+  background-color: #f9f9f9;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  font-family: Arial, sans-serif;
+  max-height: 300px;     /* Kutunun yüksekliği sınırlı */
+  overflow-y: auto;      /* İçerik fazlaysa içten kaydırılır */
+}
+
+.profile,
+.club-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%; /* Yuvarlak görüntü için */
+  margin-right: 8px;
+}
+
+.transfer-box ul li {
+  border-bottom: 1px solid #ddd;  /* İnce gri çizgi */
+  padding: 8px 0;                 /* Üst-alt boşluk */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Son satırda çizgi olmasın */
+.transfer-box ul li:last-child {
+  border-bottom: none;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Sol taraf: Oyuncu listeleri ve teknik direktör -->
+    <div class="sol-taraf">
+      <h1>Beşiktaş</h1>
+
+      <div class="player-section">
+        <h2>Teknik Direktör</h2>
+        <ul class="player-list">
+          <li>
+            <img
+              src="https://img.a.transfermarkt.technology/portrait/header/7286-1547546561.jpg?lm=1"
+              alt="Jose Mourinho" />
+            Ole Gunnar Solskjær
+          </li>
+        </ul>
+      </div>
+
+      <div class="player-section">
+    <h2>Forvet</h2>
+    <div class="player-list">
+      <div class="player-box">
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/105521-1727355739.png?lm=1 alt="Edin Dzeko" />
+        <div class="player-info">
+          <p>Asist: 4</p>
+          <p>Gol: 19</p>
+          <p>Maç: 42</p>
+          <p><strong>Ciro İmmobile</strong></p>
+        </div>
+      </div>
+      <div class="player-box">
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/875334-1727355952.png?lm=1" alt="Youssef En-Nesyri" />
+        <div class="player-info">
+          <p>Asist: 3</p>
+          <p>Gol: 4</p>
+          <p>Maç: 47</p>
+          <p><strong>Semih Kılıçsoy</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <div class="player-section">
+    <h2>Orta Saha</h2>
+    <div class="player-list">
+      <div class="player-box">
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/238055-1727356372.png?lm=1" alt="Edin Dzeko" />
+        <div class="player-info">
+          <p>Asist: 12</p>
+          <p>Gol: 18</p>
+          <p>Maç: 50</p>
+          <p><strong>Rafa Silva</strong></p>
+        </div>
+      </div>
+      <div class="player-box">
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/337800-1727354898.png?lm=1" alt="Youssef En-Nesyri" />
+        <div class="player-info">
+          <p>Asist: 1</p>
+          <p>Gol: 12</p>
+          <p>Maç: 50</p>
+          <p><strong>Gedson Fernandes</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <div class="player-section">
+    <h2>Defans</h2>
+    <div class="player-list">
+      <div class="player-box">
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/531332-1727357464.png?lm=1" alt="Edin Dzeko" />
+        <div class="player-info">
+          <p>Asist: 1</p>
+          <p>Gol: 1</p>
+          <p>Maç: 39</p>
+          <p><strong>Emirhan Topçu</strong></p>
+        </div>
+      </div>
+      <div class="player-box">
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/181380-1696075631.png?lm=1" alt="Youssef En-Nesyri" />
+        <div class="player-info">
+          <p>Asist: 8</p>
+          <p>Gol: 1</p>
+          <p>Maç: 47</p>
+          <p><strong>Arthur Masuaku</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="player-section">
+  <h2>Kaleci</h2>
+  <div class="player-list">
+    <div class="player-box">
+      <img src="https://img.a.transfermarkt.technology/portrait/medium/51894-1727355668.png?lm=1" alt="Edin Dzeko" />
+      <div class="player-info">
+        <p>Asist: 0</p>
+        <p>Gol: 0</p>
+        <p>Maç: 43</p>
+        <p><strong>Mert Günok</strong></p>
+      </div>
+    </div>
+    <div class="player-box">
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/500091-1727354578.png?lm=1" alt="Youssef En-Nesyri" />
+        <div class="player-info">
+          <p>Asist: 0</p>
+          <p>Gol: 0</p>
+          <p>Maç: 9</p>
+          <p><strong>Ersin Destanoğlu</strong></p>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+  <!-- Sağ taraf: Gelenler ve Gidenler -->
+ <div class="transfer-container">
+  <div class="transfer-box">
+    <h3>Gelenler</h3>
+    <ul>
+      
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/451642-1727355834.png?lm=1" class="profile" alt="Bonucci" />
+        Can Keleş - 2.75M €
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/6646.png?lm=1441625196" class="club-logo" alt="Juventus" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/531332-1727357464.png?lm=1" class="profile" alt="Szymanski" />
+        Emirhan Topçu - 3.4M €
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/126.png?lm=1443714784" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/105521-1727355739.png?lm=1" class="profile" alt="Szymanski" />
+        Ciro İmmobile - 2M €
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/398.png?lm=1601537785" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/238055-1727356372.png?lm=1" class="profile" alt="Szymanski" />
+        Rafa Silva - Bedelsiz
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/294.png?lm=1535908439" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/651005-1727356126.png?lm=1" class="profile" alt="Szymanski" />
+        Cher Ndour - Kiralık
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/583.png?lm=1728026461" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/149729-1727355794.png?lm=1" class="profile" alt="Szymanski" />
+        Joao Mario - Kiralık
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/294.png?lm=1535908439" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/149498-1727355000.png?lm=1" class="profile" alt="Szymanski" />
+        Gabriel Paulista - Bedelsiz
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/13.png?lm=1719915566" class="club-logo" alt="Feyenoord" />
+      </li>
+    </ul>
+  </div>
+
+  <div class="transfer-box">
+    <h3>Gidenler</h3>
+    <ul>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/441170-1666619891.png?lm=1" class="profile" alt="Serdar Aziz" />
+        Valentin Rosier - Bedelsiz
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/1244.png?lm=1422972468" class="club-logo" alt="Galatasaray" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/147487-1674477789.png?lm=1" class="profile" alt="Szymanski" />
+        Vincent Aboubakar - Bedelsiz
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/7775.png?lm=1441723606" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/45671-1728392200.JPG?lm=1" class="profile" alt="Szymanski" />
+        Cenk Tosun - Bedelsiz
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/36.png?lm=1406739123" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/118287-1729518411.jpg?lm=1" class="profile" alt="Szymanski" />
+        Rachid Ghezzal - Bedelsiz
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/126.png?lm=1443714784" class="club-logo" alt="Feyenoord" />
+      </li>
+      <li>
+        <img src="https://img.a.transfermarkt.technology/portrait/medium/341549-1730286066.jpg?lm=1" class="profile" alt="Szymanski" />
+        Umut Meraş - Bedelsiz
+        <img src="https://tmssl.akamaized.net//images/wappen/tiny/7160.png?lm=1748084850" class="club-logo" alt="Feyenoord" />
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+  </div>
+
+</body>
+
+</html>

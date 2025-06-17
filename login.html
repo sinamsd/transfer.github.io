@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Giriş Yap</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #1e40af;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Giriş Yap</h2>
+    <form onsubmit="girisYap(event)">
+      <label for="username">Kullanıcı Adı</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Şifre</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Giriş</button>
+    </form>
+  </div>
+
+  <script>
+    function girisYap(e) {
+      e.preventDefault();
+      const kullaniciAdi = document.getElementById('username').value;
+      // Giriş bilgisiyle başka sayfaya yönlendiriyoruz
+      window.location.href = `hosgeldin.html?ad=${encodeURIComponent(kullaniciAdi)}`;
+    }
+  </script>
+</body>
+</html>
+
